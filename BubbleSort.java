@@ -3,10 +3,10 @@ package algorithm;
 import java.util.Arrays;
 
 /**
- * Created by lucky on 2017/7/28.
+ * Created by aping.foo
  * 冒泡
  */
-public class Bubble {
+public class BubbleSort {
     public static void main(String[] args) {
         int[] arr = {1, 3, 2, 10, 6};
 

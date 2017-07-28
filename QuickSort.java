@@ -3,7 +3,7 @@ package algorithm;
 import java.util.Arrays;
 
 /**
- * Created by lucky on 2017/7/28.
+ * Created by aping.foo
  * 快排
  * 思想：分治法
  */
