@@ -7,6 +7,9 @@ import java.util.Arrays;
  * 归并排序
  * 思想，分治法，将数组分割成N个有序部分，最终目的是分割成只有1个元素的部分，这样每个部分都是有序
  * 最后合并有序数组
+ *
+ * 空间复杂读 o(n)
+ * 时间复杂读 o(nlgn)
  */
 public class MergeSort {
 
