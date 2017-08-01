@@ -16,7 +16,7 @@ public class Exercise2 {
      * @param targetY       目标点Y
      * @param rangeSquared  扇形半径平方
      * @param baseDirection 角色方向(一般八个方向)
-     * @param angle         扇形角度
+     * @param angle         角度(比如技能角度)
      * @return
      */
     public static boolean checkInSectorRange1(int baseX, int baseY, int targetX,
