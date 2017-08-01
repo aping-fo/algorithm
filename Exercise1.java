@@ -15,6 +15,8 @@ public class Exercise1 extends AbstractTree {
             Node childNode = new Node(random.nextInt(100), null, null, null);
             buildTree(root, childNode);
         }
+
+        deleteNode(10);
     }
 
     /**
@@ -43,11 +45,10 @@ public class Exercise1 extends AbstractTree {
         if (node == null) {
             return;
         }
-
-
+        deleteNode(node);
     }
 
-    private void deleteNode(Node node) {
+    private static void deleteNode(Node node) {
         //第一种情况，无子节点，直接删除
         if (node.getLeft() == null && node.getRight() == null) {
             if (root == node) { //如果是根节点
