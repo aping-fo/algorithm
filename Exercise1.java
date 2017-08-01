@@ -6,10 +6,11 @@ import java.util.Random;
  * Created by lucky on 2017/8/1.
  */
 public class Exercise1 extends AbstractTree {
+    private static Node root;
+
     public static void main(String[] args) {
         Random random = new Random();
-
-        Node root = new Node(50, null, null, null);
+        root = new Node(50, null, null, null);
         for (int i = 0; i < 10; i++) {
             Node childNode = new Node(random.nextInt(100), null, null, null);
             buildTree(root, childNode);
@@ -22,7 +23,7 @@ public class Exercise1 extends AbstractTree {
      * @param key
      * @return
      */
-    private static Node search(Node root, int key) {
+    private static Node search(int key) {
         Node pNode = root;
         while (pNode != null) {
             if (key == pNode.getValue()) {
@@ -37,12 +38,16 @@ public class Exercise1 extends AbstractTree {
     }
 
 
-    private static void deleteNode(Node root, int key) {
-        Node node = search(root, key);
+    private static void deleteNode(int key) {
+        Node node = search(key);
         if (node == null) {
             return;
         }
 
+
+    }
+
+    private void deleteNode(Node node) {
         //第一种情况，无子节点，直接删除
         if (node.getLeft() == null && node.getRight() == null) {
             if (root == node) { //如果是根节点
@@ -80,5 +85,27 @@ public class Exercise1 extends AbstractTree {
                 node.getLeft().setParent(node.getParent());
             }
         }
+
+        //被删除的节点有左右节点
+        if (node.getLeft() != null && node.getRight() != null) {
+            Node minNode = minNode(node.getRight());
+            node.setValue(minNode.getValue());
+            deleteNode(minNode.getValue()); //删除该节点
+        }
+    }
+
+    /**
+     * 找出子树最小节点
+     *
+     * @param node
+     * @return
+     * @throws Exception
+     */
+    private static Node minNode(Node node) {
+        Node pNode = node;
+        while (pNode.getLeft() != null) {
+            pNode = pNode.getLeft();
+        }
+        return pNode;
     }
 }
