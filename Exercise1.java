@@ -3,7 +3,8 @@ package algorithm;
 import java.util.Random;
 
 /**
- * Created by lucky on 2017/8/1.
+ * Created by aping.foo
+ * 可以参考treemap里的实现
  */
 public class Exercise1 extends AbstractTree {
     private static Node root;
@@ -89,7 +90,7 @@ public class Exercise1 extends AbstractTree {
 
         //被删除的节点有左右节点
         if (node.getLeft() != null && node.getRight() != null) {
-            Node minNode = minNode(node.getRight());
+            Node minNode = successor(node.getRight());
             node.setValue(minNode.getValue());
             deleteNode(minNode.getValue()); //删除该节点
         }
@@ -102,7 +103,7 @@ public class Exercise1 extends AbstractTree {
      * @return
      * @throws Exception
      */
-    private static Node minNode(Node node) {
+    private static Node successor(Node node) {
         Node pNode = node;
         while (pNode.getLeft() != null) {
             pNode = pNode.getLeft();
