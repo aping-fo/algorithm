@@ -7,6 +7,7 @@ import java.util.Arrays;
  * 选择排序
  */
 public class ChoiceSort {
+
     public static void main(String[] args) {
         int[] arr = {1, 3, 2, 10, 6, 5};
 

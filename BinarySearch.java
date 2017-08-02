@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * Created by  aping.foo.
  * 二分查找
- * 思想：先排序，再折半查找
+ * 思想：二分查找必须是有序,先排序，再折半查找
  */
 public class BinarySearch {
     public static void main(String[] args) {

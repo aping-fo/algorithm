@@ -11,9 +11,9 @@ public class TreeNoRecursion extends AbstractTree {
     public static void main(String[] args) {
         Random random = new Random();
 
-        Node root = new Node(50, null, null);
+        Node root = new Node(50, null, null,null);
         for (int i = 0; i < 10; i++) {
-            Node childNode = new Node(random.nextInt(100), null, null);
+            Node childNode = new Node(random.nextInt(100), null, null,null);
             buildTree(root, childNode);
         }
 
