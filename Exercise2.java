@@ -8,7 +8,9 @@ public class Exercise2 {
 
     public static void main(String[] args) {
 
-        boolean ret = checkInSectorRange1(0,0,1,1,4,45,15);
+        boolean ret = checkInSectorRange1(0, 0, 10, 1, 81, 45, 15);
+        System.out.println(ret);
+        ret = checkInSectorRange2(0, 0, 10, 1, 81, 45, 15);
         System.out.println(ret);
     }
 
@@ -68,7 +70,8 @@ public class Exercise2 {
         }
 
         double length = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-
-        return deltaX * (targetX - baseX) + deltaY * (targetY - baseY) > length * Math.cos(angle / 2);
+        //pc 向量(targetX - baseX,targetY - baseY),基本原理 (p-c)*(pc) > |p-c|cos(angle)
+        //pc表示向量
+        return deltaX * (targetX - baseX) + deltaY * (targetY - baseY) > length * Math.cos(angle);
     }
 }
