@@ -8,9 +8,7 @@ public class Exercise2 {
 
     public static void main(String[] args) {
 
-        boolean ret = checkInSectorRange1(0, 0, 10, 1, 81, 45, 15);
-        System.out.println(ret);
-        ret = checkInSectorRange2(0, 0, 10, 1, 81, 45, 15);
+        boolean ret = checkInSectorRange(0, 0, 10, 1, 121, 45, 15);
         System.out.println(ret);
     }
 
@@ -27,9 +25,9 @@ public class Exercise2 {
      * @param angle         角度
      * @return
      */
-    public static boolean checkInSectorRange1(int baseX, int baseY, int targetX,
-                                              int targetY, float rangeSquared,
-                                              int baseDirection, int angle) {
+    public static boolean checkInSectorRange(int baseX, int baseY, int targetX,
+                                             int targetY, float rangeSquared,
+                                             int baseDirection, int angle) {
         // 先判断是否在圆范围内
         int deltaX = targetX - baseX;
         int deltaY = targetY - baseY;
@@ -50,28 +48,5 @@ public class Exercise2 {
             degree = 360 - degree;
         }
         return angle >= degree;
-    }
-
-
-    public static boolean checkInSectorRange2(int baseX, int baseY, int targetX,
-                                              int targetY, float rangeSquared, int baseDirection, int angle) {
-        // 先判断是否在圆范围内
-        int deltaX = targetX - baseX;
-        int deltaY = baseY - targetY;
-
-        if (deltaX == 0 && deltaY == 0) {
-            return true;
-        }
-
-
-        // 判断是否在椭圆范围内
-        if ((deltaX * deltaX + deltaY * deltaY) > rangeSquared) { //是否在圆外
-            return false;
-        }
-
-        double length = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-        //pc 向量(targetX - baseX,targetY - baseY),基本原理 (p-c)*(pc) > |p-c|cos(angle)
-        //pc表示向量
-        return deltaX * (targetX - baseX) + deltaY * (targetY - baseY) > length * Math.cos(angle);
     }
 }
