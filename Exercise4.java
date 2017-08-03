@@ -13,6 +13,12 @@ public class Exercise4 {
         }
     }
 
+    /**
+     * 调整堆
+     * @param A
+     * @param hLen
+     * @param i
+     */
     private static void adjustHeap(int A[], int hLen, int i) {
         int left = leftChild(i); // 节点i的左孩子
         int right = rightChild(i); // 节点i的右孩子节点
@@ -47,6 +53,11 @@ public class Exercise4 {
         return 2 * i + 1;
     }
 
+    /**
+     * 初始建堆
+     * @param A
+     * @param hLen
+     */
     private static void buildHeap(int A[], int hLen) {
         int i;
         int begin = hLen / 2 - 1; // 最后一个非叶子节点
