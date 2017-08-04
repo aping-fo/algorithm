@@ -1,5 +1,6 @@
 package algorithm;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,20 +12,20 @@ import java.util.stream.Collectors;
  */
 public class Exercise6 {
     public static void main(String[] args) {
-        int[] arr = {12, 122};
-        int num = maxNum(arr);
-        System.out.println(num);
+        int[] arr = {12, 122, 121, 45};
+        BigDecimal num = maxNum(arr);
+        System.out.println(num.toString());
     }
-
 
     /**
      * 没有考虑越界
+     *
      * @param arr
      * @return
      */
-    private static int maxNum(int[] arr) {
+    private static BigDecimal maxNum(int[] arr) {
         if (arr.length < 2) {
-            return arr[0];
+            return new BigDecimal(arr[0]);
         }
         List<String> list = Arrays.stream(arr).mapToObj(Integer::toString).collect(Collectors.toList());
         String s0 = list.get(0);
@@ -37,7 +38,7 @@ public class Exercise6 {
         }
 
         if (list.size() < 3) {
-            return Integer.parseInt(str);
+            return new BigDecimal(Integer.parseInt(str));
         }
 
         for (int i = 2; i < list.size(); i++) {
@@ -49,6 +50,6 @@ public class Exercise6 {
             }
         }
 
-        return Integer.parseInt(str);
+        return new BigDecimal(str);
     }
 }
