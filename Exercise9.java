@@ -24,13 +24,16 @@ public class Exercise9 {
         int len1 = 0;
         int len2 = 0;
 
-        while (p1.node != null) {
-            len1++;
-            p1 = p1.node;
-        }
-        while (p2.node != null) {
-            len2++;
-            p2 = p2.node;
+        while (p1.node != null
+                || p2.node != null) {
+            if(p1.node != null) {
+                len1++;
+                p1 = p1.node;
+            }
+            if(p2.node != null) {
+                len2++;
+                p2 = p2.node;
+            }
         }
 
         if (p1 != p2) {
