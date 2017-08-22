@@ -44,7 +44,7 @@ public class Exercise15 {
 
         double t1 = c1 - l / 2 * Math.hypot(a1, b1);
         double t2 = c1 + l / 2 * Math.hypot(a1, b1);
-        if (t1 > c1) {
+        if (t1 >= c1) {
             c2 = t1;
         } else {
             c2 = t2;
@@ -67,7 +67,7 @@ public class Exercise15 {
 
         double t3 = c3 - l / 2 * Math.hypot(a3, b3);
         double t4 = c4 + l / 2 * Math.hypot(a3, b3);
-        if (t3 > c3) {
+        if (t3 <= c3) {
             c4 = t3;
         } else {
             c4 = t4;
