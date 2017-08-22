@@ -8,6 +8,7 @@ package algorithm;
  * 一般采用点到矩形中心线的距离是否超过边长一半即可进行判断
  * 下面演示技能矩形，怪物是否在攻击矩形范围内
  *
+ *  这里暂时没考虑水平和竖直方向的，因为这2个方向更简单
  * 其他点都可以采用此方法
  */
 public class Exercise15 {
@@ -44,7 +45,7 @@ public class Exercise15 {
 
         double t1 = c1 - l / 2 * Math.hypot(a1, b1);
         double t2 = c1 + l / 2 * Math.hypot(a1, b1);
-        if (t1 > c1) {
+        if (t1 >= c1) {
             c2 = t1;
         } else {
             c2 = t2;
@@ -67,7 +68,7 @@ public class Exercise15 {
 
         double t3 = c3 - l / 2 * Math.hypot(a3, b3);
         double t4 = c4 + l / 2 * Math.hypot(a3, b3);
-        if (t3 > c3) {
+        if (t3 <= c3) {
             c4 = t3;
         } else {
             c4 = t4;
