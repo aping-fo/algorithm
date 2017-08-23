@@ -3,6 +3,7 @@ package algorithm;
 /**
  * Created by aping.foo.
  * 判断点是否在扇形内，游戏里经常用到
+ * 通过夹角和半径距离来判断
  */
 public class Exercise2 {
 
