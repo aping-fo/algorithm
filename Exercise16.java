@@ -2,7 +2,7 @@ package algorithm;
 
 /**
  * Created by aping.foo
- * 联系题16
+ * 练习题16
  * 数组中出现次数超过一半的数字
  * 时间复杂度 O（n）
  *
