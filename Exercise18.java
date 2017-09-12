@@ -65,9 +65,9 @@ public class Exercise18 {
                 if (char1 != char2) {
                     arr[i][j] = "";
                 } else {
-                    if (i == 0 || j == 0) {
+                    if (i == 0 || j == 0) { //如果其中是第一个元素，那么肯定不会存在前面相等的元素，故直接放置
                         arr[i][j] = String.valueOf(char1);
-                    } else {
+                    } else {  //如果都不是第一个元素，并且相等，那么找前面一个元素合并，注意，此时他们前一个元素有可能有，有可能就是空串 ""
                         arr[i][j] = arr[i - 1][j - 1] + char1;
                     }
                     if (arr[i][j].length() > len) {
