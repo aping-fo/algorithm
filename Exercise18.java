@@ -7,9 +7,10 @@ package algorithm;
 public class Exercise18 {
 
     public static void main(String[] args) {
-        String s1 = "abcdefghijklmnop";
-        String s2 = "abcsafjklmnopqrstuvw";
-        func(s1,s2);
+        String s1 = "aead";
+        String s2 = "baba";
+        func(s1, s2);
+        func1(s1, s2);
     }
 
 
@@ -29,8 +30,8 @@ public class Exercise18 {
         String s = "";
         for (int i = 0; i < min.length(); i++) { //从第0个元素开始
             for (int j = i + 1; j <= min.length(); j++) {
-                if(!max.contains(min.substring(i, j))){
-                    //如果不包含改字串，提前退出该层循环
+                if (!max.contains(min.substring(i, j))) {
+                    //如果不包含该字串，提前退出该层循环
                     break;
                 }
                 if (max.contains(min.substring(i, j)) && j - i > l) {
@@ -40,5 +41,44 @@ public class Exercise18 {
             }
         }
         System.out.println(s);
+    }
+
+    /**
+     * 采用动态规划方式来求解
+     *  这里的思路是，把2个字符串 分割成字串，然后求最长公共字串
+     * @param s1
+     * @param s2
+     */
+    public static void func1(String s1, String s2) {
+        int len1 = s1.length();
+        int len2 = s2.length();
+
+        char char1;
+        char char2;
+        int len = 0;
+        String lcs = "";
+        String[][] arr = new String[len1][len2];
+        for (int i = 0; i < len1; i++) {
+            for (int j = 0; j < len2; j++) {
+                char1 = s1.charAt(i);
+                char2 = s2.charAt(j);
+                if (char1 != char2) {
+                    arr[i][j] = "";
+                } else {
+                    if (i == 0 || j == 0) {
+                        arr[i][j] = String.valueOf(char1);
+                    } else {
+                        arr[i][j] = arr[i - 1][j - 1] + char1;
+                    }
+                    if (arr[i][j].length() > len) {
+                        len = arr[i][j].length();
+                        lcs = arr[i][j];
+                    } else if (arr[i][j].length() == len) {
+                        lcs = lcs + "," + arr[i][j];
+                    }
+                }
+            }
+        }
+        System.out.println(lcs);
     }
 }
